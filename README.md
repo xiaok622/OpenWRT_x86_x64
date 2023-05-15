@@ -17,6 +17,8 @@
 
 # 二、固件说明
 - 固件下载地址：https://github.com/Siriling/OpenWRT_x86_x64/releases
+- 支持大多数5G模块
+- 支持网卡MT7921系列
 - 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
 
 # 三、插件展示
