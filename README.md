@@ -20,9 +20,7 @@
 - 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
 
 # 三、插件展示
- ![Alt text](scripts/20.png?raw=true "Title")
-
-
+![image-20221228213127506](images/20.png)
 
 # 四、鸣谢
 
