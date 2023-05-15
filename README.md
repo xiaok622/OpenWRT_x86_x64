@@ -28,7 +28,7 @@
 - 5G模组拨号脚本：[点击查看](https://github.com/Siriling/OpenWRT_x86_x64/tree/main/tools/5G%E6%A8%A1%E7%BB%84%E6%8B%A8%E5%8F%B7%E8%84%9A%E6%9C%AC)
 
 # 四、插件展示
-![image-20221228213127506](images/20.png)
+![plugins](images/plugins.png)
 
 # 五、鸣谢
 
