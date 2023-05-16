@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: x86-x64-全插件
+name: x86-x64-完整版
 
 on:
   repository_dispatch:
@@ -19,8 +19,8 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/lean/lean.config
-  DIY_SH: scripts/lean.sh
+  CONFIG_FILE: configs/lean/full.config
+  DIY_SH: scripts/diy.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_WETRANSFER: false #上传到WeTransfer
   UPLOAD_RELEASE: true
@@ -40,7 +40,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
+        
     - name: Clone Source Code
       run: |
         df -hT $PWD
@@ -57,12 +57,12 @@ jobs:
         git clone --depth=1 https://github.com/DHDAXCW/luci customfeeds/luci
         chmod +x ../scripts/*.sh
         ../scripts/hook-feeds.sh
-        
+
     - name: Install Feeds
       run: |
         cd $OPENWRTROOT
         ./scripts/feeds install -a
-
+        
     - name: Load Custom Configuration
       run: |
         [ -e files ] && mv files $OPENWRTROOT/files
@@ -109,7 +109,7 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "FIRMWARE=$PWD" >> $GITHUB_OUTPUT
         echo "COMPILE_STATUS=success" >> $GITHUB_OUTPUT
-
+        
     - name: Generate Firmware
       if: steps.compile.outputs.COMPILE_STATUS == 'success'
       id: generate
@@ -170,11 +170,8 @@ jobs:
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
-          echo "- diy    = 定制版" >> release.txt
-          echo "- full   = 全插件" >> release.txt
-          echo "- docker = 带docker" >> release.txt
-          echo "- stable = 稳定版" >> release.txt
-          echo "- beggar = 乞丐版" >> release.txt
+          echo "- 完整版：full" >> release.txt
+          echo "- 精简版：simplify" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release

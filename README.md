@@ -5,7 +5,7 @@
 
 [一、简介](#一简介)
 
-[二、固件说明](#二固件说明)
+[二、固件](#二固件)
 
 [三、资源链接](#三资源链接)
 
@@ -15,13 +15,24 @@
 
 # 一、简介
 
-该项目从[DHDAXCW/OpenWRT_x86_x64](https://github.com/DHDAXCW/OpenWRT_x86_x64)进行定制，添加5G模块支持
+该项目从[DHDAXCW/OpenWRT_x86_x64](https://github.com/DHDAXCW/OpenWRT_x86_x64)进行定制，添加5G模块支持和个人定制化
 
-# 二、固件说明
-- 固件下载地址：https://github.com/Siriling/OpenWRT_x86_x64/releases
+# 二、固件
+
+## 说明
+
 - 支持大多数5G模块
 - 支持网卡MT7921系列
 - 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
+
+## 类型
+
+- 完整版（full）：5G支持+网卡支持+多个插件
+- 精简版（simplify）：5G支持+网卡支持+OpenClash+AD Guardhome等少量常用插件
+
+## 下载
+
+- 固件下载地址：https://github.com/Siriling/OpenWRT_x86_x64/releases
 
 # 三、资源链接
 

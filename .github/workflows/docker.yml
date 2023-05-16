@@ -170,11 +170,8 @@ jobs:
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
-          echo "- diy    = 定制版" >> release.txt
-          echo "- full   = 全插件" >> release.txt
-          echo "- docker = 带docker" >> release.txt
-          echo "- stable = 稳定版" >> release.txt
-          echo "- beggar = 乞丐版" >> release.txt
+          echo "- 完整版：full" >> release.txt
+          echo "- 精简版：simplify" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release

@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: x86-x64-diy版
+name: x86-x64-精简版
 
 on:
   repository_dispatch:
@@ -19,7 +19,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/lean/diy.config
+  CONFIG_FILE: configs/lean/simplify.config
   DIY_SH: scripts/diy.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_WETRANSFER: false #上传到WeTransfer
@@ -143,10 +143,10 @@ jobs:
         rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
         rm -rf openwrt-x86-64-generic-squashfs-combined-efi.vmdk
         rm -rf openwrt-x86-64-generic.manifest
-        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz diy-x86-64-squashfs-efi.img.gz
+        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz simplify-x86-64-squashfs-efi.img.gz
         popd
         make checksum
-        mv bin/targets/x86/64/sha256sums bin/targets/x86/64/diy-sha256sums
+        mv bin/targets/x86/64/sha256sums bin/targets/x86/64/simplify-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to WeTransfer
@@ -170,11 +170,8 @@ jobs:
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
-          echo "- diy    = 定制版" >> release.txt
-          echo "- full   = 全插件" >> release.txt
-          echo "- docker = 带docker" >> release.txt
-          echo "- stable = 稳定版" >> release.txt
-          echo "- beggar = 乞丐版" >> release.txt
+          echo "- 完整版：full" >> release.txt
+          echo "- 精简版：simplify" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
