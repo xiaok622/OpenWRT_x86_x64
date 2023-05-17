@@ -20,7 +20,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: configs/lean/full.config
-  DIY_SH: scripts/diy.sh
+  DIY_SH: scripts/full.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_WETRANSFER: false #上传到WeTransfer
   UPLOAD_RELEASE: true
