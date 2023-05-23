@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: x86-x64-完整版
+name: x86-x64-6.x-完整版
 
 on:
   repository_dispatch:

@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: x86-x64-docker版
+name: x86-x64-6.x-docker版
 
 on:
   repository_dispatch:
