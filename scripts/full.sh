@@ -148,10 +148,14 @@ sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\
 sed -i '$a\\nmsgid "Compiler author"\nmsgstr "编译作者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
 sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
+# 更换内核版本
+# sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
+
+# 修改banner
+rm -rf package/base-files/files/etc/banner
+wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
+
 # Test kernel 6.1
 rm -rf target/linux/x86/base-files/etc/board.d/02_network
 cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
-# sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
-rm -rf package/base-files/files/etc/banner
-wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
 cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
