@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: x86-x64-6.x-测试版
+name: x86-x64-5.x-测试版
 
 on:
   repository_dispatch:
@@ -17,7 +17,7 @@ on:
   #   types: started
 
 env:
-  REPO_URL: https://github.com/Siriling/lede
+  REPO_URL: https://github.com/xiaoxifu64/lede
   REPO_BRANCH: master
   CONFIG_FILE: configs/lean/test.config
   DIY_SH: scripts/simplify.sh
@@ -88,11 +88,11 @@ jobs:
       run: |
         cd $OPENWRTROOT
         echo -e "$(nproc) thread compile"
-        make tools/compile -j$(nproc) || make tools/compile -j$(nproc)
-        make toolchain/compile -j$(nproc) || make toolchain/compile -j$(nproc)
-        make target/compile -j$(nproc) || make target/compile -j$(nproc) IGNORE_ERRORS=1
+        make tools/compile -j1 V=s
+        make toolchain/compile -j1 V=s
+        make target/compile -j1 V=s
         make diffconfig
-        make package/compile -j$(nproc) IGNORE_ERRORS=1 || make package/compile -j$(nproc) IGNORE_ERRORS=1
+        make package/compile -j1 V=s
         make package/index
         cd $OPENWRTROOT/bin/packages/*
         PLATFORM=$(basename `pwd`)
@@ -133,8 +133,8 @@ jobs:
         fi
         cp files/etc/opkg/distfeeds.conf.server files/etc/opkg/distfeeds.conf.mirror
         sed -i "s/http:\/\/192.168.123.100:2345\/snapshots/https:\/\/openwrt.cc\/snapshots\/$(date +"%Y-%m-%d")\/lean/g" files/etc/opkg/distfeeds.conf.mirror
-        make package/install -j$(nproc) || make package/install -j1 V=s
-        make target/install -j$(nproc) || make target/install -j1 V=s
+        make package/install -j1 V=s
+        make target/install -j1 V=s
         pushd bin/targets/x86/64
         kernelv=`cat openwrt-x86-64-generic.manifest | grep 'kernel - ' |  awk -F '[- ]' '{print $4}'`
         echo "kernel_version=$kernelv" >> $GITHUB_OUTPUT
@@ -170,8 +170,7 @@ jobs:
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
-          echo "- 完整版：full" >> release.txt
-          echo "- 精简版：simplify" >> release.txt
+          echo "- 测试版：test" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
