@@ -7,9 +7,9 @@
 
 [二、固件](#二固件)
 
-[三、资源链接](#三资源链接)
+[三、资源](#三资源)
 
-[四、插件展示](#四插件展示)
+[四、展示](#四展示)
 
 [五、鸣谢](#五鸣谢)
 
@@ -41,12 +41,15 @@
 
 - 固件下载地址：https://github.com/Siriling/OpenWRT_x86_x64/releases
 
-# 三、资源链接
+# 三、资源
 
 - 5G模组拨号脚本：[点击查看](https://github.com/Siriling/OpenWRT_x86_x64/tree/main/tools/5G%E6%A8%A1%E7%BB%84%E6%8B%A8%E5%8F%B7%E8%84%9A%E6%9C%AC)
 
-# 四、插件展示
-![plugins](images/plugins.png)
+# 四、展示
+
+## 概览
+
+![overview](images/overview.png)
 
 # 五、鸣谢
 
