@@ -162,9 +162,11 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-          echo "release_tag=$(date +"%Y.%m.%d")-Lean" >> $GITHUB_OUTPUT
+          echo "release_tag=$(date +"%Y.%m.%d")-test-5.x" >> $GITHUB_OUTPUT
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
+          echo "## ⚠️ 警告" >> release.txt
+          echo "- 该固件用于测试，请勿下载" >> release.txt
           echo "## 🗒️ 固件信息" >> release.txt
           [ $UPLOAD_WETRANSFER = true ] && echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
@@ -179,7 +181,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: 📦‍ 固件下载 | x86-64-Linux-${{ steps.generate.outputs.kernel_version }} | ${{ steps.tag.outputs.release_date }}
+          name: 🛠️ 测试固件 | x86-64-Linux-${{ steps.generate.outputs.kernel_version }} | ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
