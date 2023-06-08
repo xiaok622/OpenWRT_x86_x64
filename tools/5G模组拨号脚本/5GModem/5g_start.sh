@@ -1,3 +1,3 @@
 #!/bin/bash
 
-quectel-CM -s 3gnet -4 -6
+quectel-CM -4 -6

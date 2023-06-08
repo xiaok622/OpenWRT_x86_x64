@@ -21,10 +21,11 @@
 
 ## 说明
 
-- 支持大多数5G模块
-- 支持5G模块使用USB或PCIE通信
 - 支持网卡MT7921系列
 - 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
+- 支持大多数5G模块
+- 支持5G模块使用USB或PCIE通信
+- 固件已加入5G模组QMI自动拨号脚本（刷写固件后只需要新建接口，开机自动拨号）
 
 ## 类型
 
@@ -44,6 +45,7 @@
 # 三、资源
 
 - 5G模组拨号脚本：[点击查看](https://github.com/Siriling/OpenWRT_x86_x64/tree/main/tools/5G%E6%A8%A1%E7%BB%84%E6%8B%A8%E5%8F%B7%E8%84%9A%E6%9C%AC)
+- 5G模组使用教程：[点击查看](https://blog.siriling.com:1212/2023/03/18/openwrt-5g-modem/)
 
 # 四、展示
 
