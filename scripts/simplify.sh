@@ -10,72 +10,74 @@
 # Clone community packages to package/community
 
 # mt7921 mt7916
-rm -rf package/libs/libnl-tiny
-rm -rf package/kernel/mac80211
-rm -rf package/kernel/mt76
-rm -rf package/network/services/hostapd
-svn export https://github.com/openwrt/openwrt/trunk/package/libs/libnl-tiny package/libs/libnl-tiny
-svn export https://github.com/openwrt/openwrt/trunk/package/kernel/mac80211 package/kernel/mac80211
-svn export https://github.com/DHDAXCW/lede-rockchip/trunk/package/kernel/mt76 package/kernel/mt76
-svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
+# rm -rf package/libs/libnl-tiny
+# rm -rf package/kernel/mac80211
+# rm -rf package/kernel/mt76
+# rm -rf package/network/services/hostapd
+# svn export https://github.com/openwrt/openwrt/trunk/package/libs/libnl-tiny package/libs/libnl-tiny
+# svn export https://github.com/openwrt/openwrt/trunk/package/kernel/mac80211 package/kernel/mac80211
+# svn export https://github.com/DHDAXCW/lede-rockchip/trunk/package/kernel/mt76 package/kernel/mt76
+# svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
 
-mkdir package/community
-pushd package/community
+# mkdir package/community
+# pushd package/community
 
-# Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
-rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf openwrt-package/verysync
-rm -rf openwrt-package/luci-app-verysync
+# # Add Lienol's Packages
+# git clone --depth=1 https://github.com/Lienol/openwrt-package
+# rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
+# rm -rf openwrt-package/verysync
+# rm -rf openwrt-package/luci-app-verysync
 
-# Add luci-app-unblockneteasemusic
-rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+# # Add luci-app-unblockneteasemusic
+# rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+# git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
 
-# Add luci-proto-minieap
-git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
+# # Add luci-proto-minieap
+# git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
 
-# Add luci-app-onliner (need luci-app-nlbwmon)
-git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
+# # Add luci-app-onliner (need luci-app-nlbwmon)
+# git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
-# Add OpenClash
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+# # Add OpenClash
+# svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 
-# Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
+# # Add luci-app-poweroff
+# git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
-# Add luci-theme
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
-rm -rf ../../customfeeds/luci/themes/luci-theme-argon
-rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
-rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
-git clone https://github.com/DHDAXCW/theme
+# # Add luci-theme
+# git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
+# git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# rm -rf ../../customfeeds/luci/themes/luci-theme-argon
+# rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
+# rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+# cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
+# git clone https://github.com/DHDAXCW/theme
 
-# Add apk (Apk Packages Manager)
-svn export https://github.com/openwrt/packages/trunk/utils/apk
+# # Add apk (Apk Packages Manager)
+# svn export https://github.com/openwrt/packages/trunk/utils/apk
 
-# Add OpenAppFilter
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
+# # Add OpenAppFilter
+# git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
-# Mod zzz-default-settings
-pushd package/lean/default-settings/files
-sed -i '/http/d' zzz-default-settings
-sed -i '/18.06/d' zzz-default-settings
-export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
-sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
-popd
+# # Mod zzz-default-settings
+# pushd package/lean/default-settings/files
+# sed -i '/http/d' zzz-default-settings
+# sed -i '/18.06/d' zzz-default-settings
+# export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
+# export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
+# sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
+# popd
 
-# Fix libssh
-pushd feeds/packages/libs
-rm -rf libssh
-svn export https://github.com/openwrt/packages/trunk/libs/libssh
-popd
+# # Fix libssh
+# pushd feeds/packages/libs
+# rm -rf libssh
+# svn export https://github.com/openwrt/packages/trunk/libs/libssh
+# popd
 
-# Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+# # Change default shell to zsh
+# sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+
+echo "*****************开始*************"
 
 # 修复移远PCIe驱动(quectel_MHI)
 rm -rf package/wwan/driver/quectel_MHI
