@@ -83,12 +83,12 @@ svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI packag
 
 # 添加5G模组拨号脚本
 mkdir package/base-files/files/root
-cp -r $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem package/base-files/files/root/5GModem
-# chmod -R 755 package/base-files/files/root/5GModem
-cp -f $GITHUB_WORKSPACE/configs/etc/* package/base-files/files/etc
+cp -r $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
+chmod -R 755 package/base-files/files/root/5GModem
+cp -r $GITHUB_WORKSPACE/configs/etc/* package/base-files/files/etc
 
 # 应用配置自定义
-cp -f $GITHUB_WORKSPACE/configs/applications/luci-app-adguardhome/* ../../customfeeds/luci/applications/luci-app-adguardhome
+cp -r $GITHUB_WORKSPACE/configs/applications/luci-app-adguardhome/* ../../customfeeds/luci/applications/luci-app-adguardhome
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
