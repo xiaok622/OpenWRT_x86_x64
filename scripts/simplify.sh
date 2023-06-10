@@ -82,8 +82,8 @@ rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
 # 添加5G模组拨号脚本
-mkdir package/base-files/files/root
-cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/* package/base-files/files/root
+mkdir package/base-files/files/root && mkdir package/base-files/files/root/5GModem
+cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/configs/etc/* package/base-files/files/etc
 
