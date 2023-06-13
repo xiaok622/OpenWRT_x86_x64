@@ -1,4 +1,4 @@
-# 中文 | [English](https://github.com/DHDAXCW/NanoPi-R5S-2021/blob/main/EngLish.md)
+# 中文 | [English](https://github.com/Siriling/OpenWRT_x86_x64/blob/main/EngLish.md)
 # x86-x64
 
 # 目录
