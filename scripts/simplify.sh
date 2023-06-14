@@ -38,6 +38,13 @@ git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
 # Add luci-app-onliner (need luci-app-nlbwmon)
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
+#OpenClash
+svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+# rm -rf customfeeds/luci/applications/luci-app-openclash/root/etc/config/openclash
+# rm -rf customfeeds/luci/applications/luci-app-openclash/root/etc/openclash/custom/openclash_custom_localnetwork_ipv4.list
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-openclash customfeeds/temp/luci-app-openclash
+cp -rf customfeeds/temp/luci-app-openclash/* luci-app-openclash
+
 # Add luci-app-poweroff
 git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
@@ -92,13 +99,7 @@ rm -rf customfeeds/luci/applications/luci-app-adguardhome
 svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
 svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
-cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
-#OpenClash
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
-# rm -rf customfeeds/luci/applications/luci-app-openclash/root/etc/config/openclash
-# rm -rf customfeeds/luci/applications/luci-app-openclash/root/etc/openclash/custom/openclash_custom_localnetwork_ipv4.list
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-openclash customfeeds/temp/luci-app-openclash
-cp -rf customfeeds/temp/luci-app-openclash/* luci-app-openclash
+# cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
