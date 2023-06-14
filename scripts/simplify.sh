@@ -89,14 +89,16 @@ svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/etc/cronta
 #ADGuardHome
 rm -rf customfeeds/packages/utils/adguardhome
 rm -rf customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/packages/utils/adguardhome customfeeds/packages/utils/adguardhome
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
+svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
+svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
+cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 #OpenClash
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash customfeeds/luci/applications/luci-app-openclash
+svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 # rm -rf customfeeds/luci/applications/luci-app-openclash/root/etc/config/openclash
 # rm -rf customfeeds/luci/applications/luci-app-openclash/root/etc/openclash/custom/openclash_custom_localnetwork_ipv4.list
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-openclash customfeeds/temp/luci-app-openclash
-cp -rf customfeeds/temp/luci-app-openclash/* customfeeds/luci/applications/luci-app-openclash
+cp -rf customfeeds/temp/luci-app-openclash/* luci-app-openclash
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
