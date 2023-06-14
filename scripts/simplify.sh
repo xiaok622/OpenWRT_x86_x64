@@ -96,8 +96,10 @@ svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/etc/cronta
 #ADGuardHome
 rm -rf customfeeds/packages/utils/adguardhome
 rm -rf customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
-svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
+# svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
+# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
 # cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 
