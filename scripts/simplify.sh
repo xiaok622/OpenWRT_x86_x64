@@ -39,13 +39,17 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhom
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
-# luci-app-poweroff
+# Poweroff
 svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
 
-# luci-proto-minieap
+# Homebox
+svn export https://github.com/kiddin9/openwrt-packages/trunk/homebox
+svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-homebox
+
+# Minieap
 svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
 
-# luci-app-onliner (need luci-app-nlbwmon)
+# Onliner (need luci-app-nlbwmon)
 svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
 
 # OpenAppFilter
