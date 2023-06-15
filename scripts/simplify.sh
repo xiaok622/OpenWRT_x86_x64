@@ -59,7 +59,7 @@ svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
 # Theme
-svn export https://github.com/xiaorouji/openwrt-passwall/branches/18.06/trunk luci-theme-argon
+svn export https://github.com/jerrykuku/luci-theme-argon/branches/18.06 luci-theme-argon
 svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
