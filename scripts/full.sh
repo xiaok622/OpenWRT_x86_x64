@@ -9,78 +9,84 @@
 #=================================================
 # Clone community packages to package/community
 
+# Add application
 mkdir package/community
 pushd package/community
 
-# Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
+# Lienol's Packages
+svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
 rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf openwrt-package/verysync
-rm -rf openwrt-package/luci-app-verysync
+rm -rf Lienol-Packages/verysync
+rm -rf Lienol-Packages/luci-app-verysync
 
-# Add luci-app-ssr-plus
-git clone --depth=1 https://github.com/fw876/helloworld
+# luci-app-ssr-plus
+svn export https://github.com/fw876/helloworld/trunk helloworld
 
-# Add luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
+# Passwall和Passwall2
+svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
 svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
+svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
 
-# Add luci-app-vssr <M>
-git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
-git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr
+# VSSR（Hello Word）
+svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
+svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
 
 # OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
-# Add luci-app-unblockneteasemusic
+# luci-app-unblockneteasemusic
+# rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+# git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
 
-# Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
+# ADGuardHome
+rm -rf ../../customfeeds/packages/utils/adguardhome
+rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
+cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
-# Add luci-proto-minieap
-git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
+# Poweroff
+svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
 
-# Add luci-app-onliner (need luci-app-nlbwmon)
-git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
+# Minieap
+svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
 
-# Add ddnsto & linkease
+# Onliner (need luci-app-nlbwmon)
+svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
+
+# OpenAppFilter
+svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
+
+# DDNSto & Linkease
 svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
 svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnsto
 
-# Add luci-theme
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# Subconverter
+svn export https://github.com/tindy2013/openwrt-subconverter/trunk openwrt-subconverter
+
+# luci-app-smartdns & Smartdns
+svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
+
+# Apk (Apk Packages Manager)
+svn export https://github.com/openwrt/packages/trunk/utils/apk
+
+# Theme
+svn export https://github.com/xiaorouji/openwrt-passwall/branches/18.06/trunk luci-theme-argon
+svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
 rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
 git clone https://github.com/DHDAXCW/theme
-
-# Add subconverter
-git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
-
-# Add luci-app-smartdns & smartdns
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
-
-# Add apk (Apk Packages Manager)
-svn export https://github.com/openwrt/packages/trunk/utils/apk
-
-# Add OpenAppFilter
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
-
-# Add luci-aliyundrive-webdav
-rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
-rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
 popd
 
-# Add Pandownload
+# Pandownload
 pushd package/lean
 svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
 popd
@@ -99,14 +105,6 @@ pushd feeds/packages/libs
 rm -rf libssh
 svn export https://github.com/openwrt/packages/trunk/libs/libssh
 popd
-
-# ADGuardHome
-rm -rf customfeeds/packages/utils/adguardhome
-rm -rf customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
-cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 
 # MT7921、MT7916网卡驱动
 rm -rf package/libs/libnl-tiny

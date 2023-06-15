@@ -9,23 +9,27 @@
 #=================================================
 # Clone community packages to package/community
 
+# Add application
 mkdir package/community
 pushd package/community
 
-# Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
+# Lienol's Packages
+svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
 rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf openwrt-package/verysync
-rm -rf openwrt-package/luci-app-verysync
+rm -rf Lienol-Packages/verysync
+rm -rf Lienol-Packages/luci-app-verysync
 
 # OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
-# Add luci-app-unblockneteasemusic
+# luci-app-unblockneteasemusic
+# rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+# git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
 
 # ADGuardHome
 rm -rf ../../customfeeds/packages/utils/adguardhome
@@ -35,29 +39,29 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhom
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
-# Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
+# luci-app-poweroff
+svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
 
-# Add luci-proto-minieap
-git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
+# luci-proto-minieap
+svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
 
-# Add luci-app-onliner (need luci-app-nlbwmon)
-git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
+# luci-app-onliner (need luci-app-nlbwmon)
+svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
 
-# Add luci-theme
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# OpenAppFilter
+svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
+
+# Apk (Apk Packages Manager)
+svn export https://github.com/openwrt/packages/trunk/utils/apk
+
+# Theme
+svn export https://github.com/xiaorouji/openwrt-passwall/branches/18.06/trunk luci-theme-argon
+svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
 rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
 git clone https://github.com/DHDAXCW/theme
-
-# Add apk (Apk Packages Manager)
-svn export https://github.com/openwrt/packages/trunk/utils/apk
-
-# Add OpenAppFilter
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 popd
 
@@ -75,14 +79,6 @@ pushd feeds/packages/libs
 rm -rf libssh
 svn export https://github.com/openwrt/packages/trunk/libs/libssh
 popd
-
-# ADGuardHome
-# rm -rf customfeeds/packages/utils/adguardhome
-# rm -rf customfeeds/luci/applications/luci-app-adguardhome
-# svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
-# svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
-# svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
-# cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 
 # MT7921、MT7916网卡驱动
 rm -rf package/libs/libnl-tiny
