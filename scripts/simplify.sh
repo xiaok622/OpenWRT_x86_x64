@@ -28,18 +28,31 @@ rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
 rm -rf openwrt-package/verysync
 rm -rf openwrt-package/luci-app-verysync
 
+# OpenClash
+svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
+cp -rf temp/luci-app-openclash/* luci-app-openclash
+
 # Add luci-app-unblockneteasemusic
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
 git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+
+# ADGuardHome
+rm -rf ../../customfeeds/packages/utils/adguardhome
+rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome luci-app-adguardhome
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
+cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
+
+# Add luci-app-poweroff
+git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
 # Add luci-proto-minieap
 git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
 
 # Add luci-app-onliner (need luci-app-nlbwmon)
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
-
-# Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
 # Add luci-theme
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
@@ -56,6 +69,8 @@ svn export https://github.com/openwrt/packages/trunk/utils/apk
 # Add OpenAppFilter
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
+popd
+
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
@@ -71,8 +86,13 @@ rm -rf libssh
 svn export https://github.com/openwrt/packages/trunk/libs/libssh
 popd
 
-# Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+# ADGuardHome
+# rm -rf customfeeds/packages/utils/adguardhome
+# rm -rf customfeeds/luci/applications/luci-app-adguardhome
+# svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
+# svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
+# svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
+# cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 
 # 修复移远PCIe驱动(quectel_MHI)
 rm -rf package/wwan/driver/quectel_MHI
@@ -83,25 +103,7 @@ mkdir package/base-files/files/root
 mkdir package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/etc/crontabs package/base-files/files/etc/crontabs
-
-# 应用配置自定义
-#ADGuardHome
-rm -rf customfeeds/packages/utils/adguardhome
-rm -rf customfeeds/luci/applications/luci-app-adguardhome
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome customfeeds/packages/utils/adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-adguardhome customfeeds/temp/luci-app-adguardhome
-# cp -rf customfeeds/temp/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
-
-#OpenClash
-pushd package/community
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/applications/luci-app-openclash temp/luci-app-openclash
-cp -rf temp/luci-app-openclash/* luci-app-openclash
-popd
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/etc/crontabs package/base-files/files/etc/crontabs
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
@@ -123,6 +125,9 @@ sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/l
 
 # 更换内核版本
 # sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
+
+# 更默认命令行样式（shell to zsh）
+sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # 修改banner
 rm -rf package/base-files/files/etc/banner
