@@ -30,8 +30,8 @@ git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblocknetea
 # ADGuardHome
 rm -rf ../../customfeeds/packages/utils/adguardhome
 rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome luci-app-adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
