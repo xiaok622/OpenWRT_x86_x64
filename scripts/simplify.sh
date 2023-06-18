@@ -40,12 +40,8 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 # Poweroff
 svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
 
-# luci-app-services-wolplus
+# Wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
-
-# Homebox
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/homebox
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-homebox
 
 # Minieap
 svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap

@@ -19,18 +19,6 @@ rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
 rm -rf Lienol-Packages/verysync
 rm -rf Lienol-Packages/luci-app-verysync
 
-# luci-app-ssr-plus
-svn export https://github.com/fw876/helloworld/trunk helloworld
-
-# Passwall和Passwall2
-svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
-svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
-
-# VSSR（Hello Word）
-svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
-svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
-
 # OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
@@ -55,6 +43,10 @@ svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-po
 # Wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 
+# Homebox
+# svn export https://github.com/kiddin9/openwrt-packages/trunk/homebox
+# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-homebox
+
 # Minieap
 svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
 
@@ -63,16 +55,6 @@ svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onli
 
 # OpenAppFilter
 svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
-
-# DDNSto & Linkease
-svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
-svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnsto
-
-# Subconverter
-svn export https://github.com/tindy2013/openwrt-subconverter/trunk openwrt-subconverter
-
-# luci-app-smartdns & Smartdns
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
 
 # Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
@@ -86,11 +68,6 @@ rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
 git clone https://github.com/DHDAXCW/theme
 
-popd
-
-# Pandownload
-pushd package/lean
-svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
 popd
 
 # Mod zzz-default-settings
