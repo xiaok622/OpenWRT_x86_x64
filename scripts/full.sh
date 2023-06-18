@@ -36,7 +36,7 @@ svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
-# luci-app-unblockneteasemusic
+# Unblockneteasemusic
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
 svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
@@ -51,6 +51,9 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
 # Poweroff
 svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
+
+# luci-app-services-wolplus
+svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 
 # Minieap
 svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
@@ -97,12 +100,6 @@ sed -i '/18.06/d' zzz-default-settings
 export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
 export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
-popd
-
-# Fix libssh
-pushd feeds/packages/libs
-rm -rf libssh
-svn export https://github.com/openwrt/packages/trunk/libs/libssh
 popd
 
 # MT7921、MT7916网卡驱动
@@ -157,3 +154,9 @@ wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/l
 rm -rf target/linux/x86/base-files/etc/board.d/02_network
 cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
 cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
+
+# Fix libssh
+pushd feeds/packages/libs
+rm -rf libssh
+svn export https://github.com/openwrt/packages/trunk/libs/libssh
+popd
