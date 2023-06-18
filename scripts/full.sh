@@ -37,8 +37,6 @@ svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/ap
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
 # luci-app-unblockneteasemusic
-# rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-# git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
 svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
