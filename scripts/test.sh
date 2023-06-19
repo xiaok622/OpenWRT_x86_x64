@@ -14,56 +14,96 @@ mkdir package/community
 pushd package/community
 
 # Lienol's Packages
-svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
-rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf Lienol-Packages/verysync
-rm -rf Lienol-Packages/luci-app-verysync
+# svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
+# rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
+# rm -rf Lienol-Packages/verysync
+# rm -rf Lienol-Packages/luci-app-verysync
 
-# OpenClash
+# 系统相关应用
+#Poweroff
+# svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff
+#fileassistant
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-fileassistant
+#guest-wifi
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-guest-wifi
+#Onliner (need luci-app-nlbwmon)
+svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
+#ramfree
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-ramfree
+#Wolplus
+# svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
+
+# 科学上网和代理应用
+#SSR
+# svn export https://github.com/fw876/helloworld/trunk helloworld
+#Passwall和Passwall2
+# svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
+# svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
+# svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
+#VSSR（Hello Word）
+# svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
+# svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
+#OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
+#Minieap
+# svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-minieap
 
-# Unblockneteasemusic
-rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
-
-# ADGuardHome
+# 去广告
+#ADGuardHome
 rm -rf ../../customfeeds/packages/utils/adguardhome
 rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
+#dnsfilter
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-dnsfilter
+#ikoolproxy
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ikoolproxy
 
-# Poweroff
-svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
+# docker应用
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-filebrowser
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-kodexplorer
 
-# Wolplus
-svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
+# VPN服务器
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ssr-mudb-server
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ipsec-server
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-pptp-server
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-softethervpn
+
+# DNS
+# svn export https://github.com/kenzok8/small-package/mosdns
+# svn export https://github.com/kenzok8/small-package/luci-app-mosdns
+# svn export https://github.com/kenzok8/small-package/smartdns
+# svn export https://github.com/kenzok8/small-package/luci-app-smartdns
+
+# DDNS
+# svn export https://github.com/kenzok8/small-package/ddnsto
+# svn export https://github.com/kenzok8/small-package/luci-app-ddnsto
+
+# 其他
+#Socat
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-socat
+#Unblockneteasemusic
+rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
+#OpenAppFilter
+svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # SMS-tools（模组短信插件）
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool
 
-# Homebox
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/homebox
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-homebox
-
-# Minieap
-svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
-
-# Onliner (need luci-app-nlbwmon)
-svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
-
-# OpenAppFilter
-svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
-
 # Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
-# Theme
+# 主题
 svn export https://github.com/jerrykuku/luci-theme-argon/branches/18.06 luci-theme-argon
 svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
@@ -83,7 +123,7 @@ export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
 popd
 
-# MT7921、MT7916网卡驱动
+# MT7921、MT7922、MT7916网卡驱动
 rm -rf package/libs/libnl-tiny
 rm -rf package/kernel/mac80211
 rm -rf package/kernel/mt76

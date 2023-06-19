@@ -96,6 +96,10 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblocknet
 #OpenAppFilter
 svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
+# SMS-tools（模组短信插件）
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool
+
 # Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
