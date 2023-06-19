@@ -112,7 +112,7 @@ svn export https://github.com/openwrt/packages/trunk/utils/apk
 
 # 主题
 svn export https://github.com/jerrykuku/luci-theme-argon/branches/18.06 luci-theme-argon
-svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
 rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
