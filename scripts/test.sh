@@ -90,6 +90,9 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 # svn export https://github.com/kenzok8/small-package/ddnsto
 # svn export https://github.com/kenzok8/small-package/luci-app-ddnsto
 
+# iStore
+svn export https://github.com/kenzok8/small-package/luci-app-quickstart
+
 # 其他
 #Socat
 rm -rf ../../customfeeds/luci/applications/luci-app-socat
