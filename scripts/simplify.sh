@@ -30,9 +30,14 @@ rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-guest-wifi
 #Onliner (need luci-app-nlbwmon)
 svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
+#Eqos
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-eqos
 #Wolplus
 # svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
+
+# 存储相关应用
+svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 
 # 科学上网和代理应用
 #SSR
