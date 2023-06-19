@@ -19,7 +19,7 @@ rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
 rm -rf Lienol-Packages/verysync
 rm -rf Lienol-Packages/luci-app-verysync
 
-# luci-app-ssr-plus
+# SSR
 svn export https://github.com/fw876/helloworld/trunk helloworld
 
 # Passwall和Passwall2
@@ -102,7 +102,7 @@ export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
 popd
 
-# MT7921、MT7916网卡驱动
+# MT7921、MT7922、MT7916网卡驱动
 rm -rf package/libs/libnl-tiny
 rm -rf package/kernel/mac80211
 rm -rf package/kernel/mt76
