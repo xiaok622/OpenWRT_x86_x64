@@ -43,6 +43,10 @@ svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-po
 # Wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 
+# SMS-tools（模组短信插件）
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool
+
 # Homebox
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/homebox
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-homebox
