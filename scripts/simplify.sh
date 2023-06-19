@@ -114,7 +114,7 @@ sed -i '$a\\nmsgid "Compiler author"\nmsgstr "编译作者"' feeds/luci/modules/
 sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
 # 更换内核版本
-# sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
+# sed -i 's/6.1/5.15/g' target/linux/x86/Makefile
 
 # 更默认命令行样式（shell to zsh）
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
