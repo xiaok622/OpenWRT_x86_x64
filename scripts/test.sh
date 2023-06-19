@@ -26,11 +26,10 @@ svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff
 #fileassistant
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-fileassistant
 #guest-wifi
+rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-guest-wifi
 #Onliner (need luci-app-nlbwmon)
 svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
-#ramfree
-svn export https://github.com/kenzok8/small-package/trunk/luci-app-ramfree
 #Wolplus
 # svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
@@ -88,6 +87,7 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
 # 其他
 #Socat
+rm -rf ../../customfeeds/luci/applications/luci-app-socat
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-socat
 #Unblockneteasemusic
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
@@ -97,6 +97,8 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblocknet
 svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # SMS-tools（模组短信插件）
+rm -rf ../../customfeeds/package/utils/sms-tool
+rm -rf ../../customfeeds/luci/applications/luci-app-sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool
 
