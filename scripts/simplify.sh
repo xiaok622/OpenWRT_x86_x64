@@ -81,14 +81,18 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-softethervpn
 
 # DNS
-# svn export https://github.com/kenzok8/small-package/mosdns
-# svn export https://github.com/kenzok8/small-package/luci-app-mosdns
-# svn export https://github.com/kenzok8/small-package/smartdns
-# svn export https://github.com/kenzok8/small-package/luci-app-smartdns
+# svn export https://github.com/kenzok8/small-package/trunk/mosdns
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-mosdns
+# svn export https://github.com/kenzok8/small-package/trunk/smartdns
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-smartdns
 
 # DDNS
-# svn export https://github.com/kenzok8/small-package/ddnsto
-# svn export https://github.com/kenzok8/small-package/luci-app-ddnsto
+# svn export https://github.com/kenzok8/small-package/trunk/ddnsto
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ddnsto
+
+# iStore应用
+# svn export https://github.com/kenzok8/small-package/trunk/quickstart
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-quickstart
 
 # 其他
 #Socat
