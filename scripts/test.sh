@@ -91,6 +91,7 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-ddnsto
 
 # iStore应用
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-store
 svn export https://github.com/kenzok8/small-package/trunk/quickstart
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-quickstart
 
