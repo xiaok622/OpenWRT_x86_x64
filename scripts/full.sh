@@ -13,84 +13,63 @@
 mkdir package/community
 pushd package/community
 
-# Lienol's Packages
-svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
-rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf Lienol-Packages/verysync
-rm -rf Lienol-Packages/luci-app-verysync
+# 导入软件源
+git clone https://github.com/kenzok8/small-package .
 
-# SSR
-svn export https://github.com/fw876/helloworld/trunk helloworld
+# 系统相关应用
+#guest-wifi
+rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
 
-# Passwall和Passwall2
-svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
-svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
-
-# VSSR（Hello Word）
-svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
-svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
-
-# OpenClash
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+# 科学上网和代理应用
+#OpenClash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
-# Unblockneteasemusic
-rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
-
-# ADGuardHome
+# 去广告
+#ADGuardHome
 rm -rf ../../customfeeds/packages/utils/adguardhome
 rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
-# Poweroff
-svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
+# docker应用
+rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
+rm -rf ../../customfeeds/packages/utils/verysync
+rm -rf ../../customfeeds/luci/applications/luci-app-verysync
 
-# Wolplus
-svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
+# VPN服务器
+rm -rf ../../customfeeds/luci/applications/luci-app-ipsec-server
+rm -rf ../../customfeeds/luci/applications/luci-app-pptp-server
+rm -rf ../../customfeeds/luci/applications/softethervpn
 
-# Minieap
-svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
+# DNS
+rm -rf ../../customfeeds/packages/utils/mosdns
+rm -rf ../../customfeeds/luci/applications/luci-app-mosdns
 
-# Onliner (need luci-app-nlbwmon)
-svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
-
-# OpenAppFilter
+# 其他
+#Socat
+rm -rf ../../customfeeds/luci/applications/luci-app-socat
+#Unblockneteasemusic
+rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+#OpenAppFilter
 svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
-# DDNSto & Linkease
-svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
-svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnsto
-
-# Subconverter
-svn export https://github.com/tindy2013/openwrt-subconverter/trunk openwrt-subconverter
-
-# luci-app-smartdns & Smartdns
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
+# 网络接口
+rm -rf ../../customfeeds/luci/applications/luci-proto-minieap
+rm -rf ../../customfeeds/luci/applications/luci-app-minieap
 
 # Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
-# Theme
+# 主题
+rm -rf luci-theme-argon
 svn export https://github.com/jerrykuku/luci-theme-argon/branches/18.06 luci-theme-argon
-svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
 rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
 git clone https://github.com/DHDAXCW/theme
 
-popd
-
-# Pandownload
-pushd package/lean
-svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
 popd
 
 # Mod zzz-default-settings
@@ -116,7 +95,15 @@ svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hos
 rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
-# 添加5G模组拨号脚本
+# 5G模组短信插件
+rm -rf package/community/sms-tool
+rm -rf package/community/luci-app-sms-tool
+rm -rf customfeeds/package/utils/sms-tool
+rm -rf customfeeds/luci/applications/luci-app-sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool package/community/sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool package/community/luci-app-sms-tool
+
+# 5G模组拨号脚本
 mkdir -p package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem

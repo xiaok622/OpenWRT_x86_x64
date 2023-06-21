@@ -13,15 +13,8 @@
 mkdir package/community
 pushd package/community
 
-# Lienol's Packages
-# svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
-# rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-# rm -rf Lienol-Packages/verysync
-# rm -rf Lienol-Packages/luci-app-verysync
-
 # 系统相关应用
 #Poweroff
-# svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff
 #fileassistant
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-fileassistant
@@ -33,7 +26,6 @@ svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onli
 #Eqos
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-eqos
 #Wolplus
-# svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
 
 # 存储相关应用
@@ -53,9 +45,6 @@ svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-goweb
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
-#Minieap
-# svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
-svn export https://github.com/kenzok8/small-package/trunk/luci-app-minieap
 
 # 去广告
 #ADGuardHome
@@ -72,7 +61,12 @@ cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
 # docker应用
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-filebrowser
+# rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-kodexplorer
+# rm -rf ../../customfeeds/packages/utils/verysync
+# rm -rf ../../customfeeds/luci/applications/luci-app-verysync
+# svn export https://github.com/kenzok8/small-package/trunk/verysync
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-verysync
 
 # VPN服务器
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-ssr-mudb-server
@@ -109,11 +103,10 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblocknet
 #OpenAppFilter
 svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
-# SMS-tools（模组短信插件）
-rm -rf ../../customfeeds/package/utils/sms-tool
-rm -rf ../../customfeeds/luci/applications/luci-app-sms-tool
-svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool
-svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool
+# 网络接口
+#Minieap
+svn export https://github.com/kenzok8/small-package/trunk/luci-proto-minieap
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-minieap
 
 # Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
@@ -152,7 +145,13 @@ svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hos
 rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
-# 添加5G模组拨号脚本
+# 5G模组短信插件
+rm -rf customfeeds/package/utils/sms-tool
+rm -rf customfeeds/luci/applications/luci-app-sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool package/community/sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool package/community/luci-app-sms-tool
+
+# 5G模组拨号脚本
 mkdir -p package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem
