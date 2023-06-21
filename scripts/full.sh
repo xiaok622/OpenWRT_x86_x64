@@ -19,6 +19,8 @@ git clone https://github.com/kenzok8/small-package .
 # 系统相关应用
 #guest-wifi
 rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
+#firewall
+rm -rf firewall
 
 # 科学上网和代理应用
 #OpenClash
