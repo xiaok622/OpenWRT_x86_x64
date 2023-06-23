@@ -150,6 +150,8 @@ rm -rf customfeeds/package/utils/sms-tool
 rm -rf customfeeds/luci/applications/luci-app-sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool package/community/sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool package/community/luci-app-sms-tool
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-sms-tool temp/luci-app-sms-tool
+cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
 
 # 5G模组拨号脚本
 mkdir -p package/base-files/files/root/5GModem
