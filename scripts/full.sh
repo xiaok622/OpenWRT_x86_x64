@@ -112,13 +112,12 @@ svn export https://github.com/kenzok8/small-package/trunk/luci-proto-minieap
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
 # 主题
+git clone https://github.com/DHDAXCW/theme
 svn export https://github.com/jerrykuku/luci-theme-argon/branches/18.06 luci-theme-argon
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-argon-config
 rm -rf ../../customfeeds/luci/themes/luci-theme-argon
-rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
-rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+#rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
-git clone https://github.com/DHDAXCW/theme
 
 popd
 
@@ -151,7 +150,7 @@ rm -rf customfeeds/luci/applications/luci-app-sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool package/community/sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool package/community/luci-app-sms-tool
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-sms-tool temp/luci-app-sms-tool
-cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
+cp -rf temp/luci-app-sms-tool/* package/community/luci-app-sms-tool
 
 # 5G模组拨号脚本
 mkdir -p package/base-files/files/root/5GModem
