@@ -17,12 +17,11 @@ on:
   #   types: started
 
 env:
-  REPO_URL: https://github.com/DHDAXCW/lede-rockchip
-  REPO_BRANCH: stable
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
   CONFIG_FILE: configs/lean/lean_docker.config
   DIY_SH: scripts/lean.sh
   KMODS_IN_FIRMWARE: true
-  UPLOAD_WETRANSFER: false #上传到WeTransfer
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
@@ -149,15 +148,6 @@ jobs:
         mv bin/targets/x86/64/sha256sums bin/targets/x86/64/docker-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
 
-    - name: Upload firmware to WeTransfer
-      id: wetransfer
-      if: steps.generate.outputs.GENERATE_STATUS == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled() && !failure()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
-        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
-
     - name: Generate release tag
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
@@ -173,7 +163,7 @@ jobs:
           echo "- 完整版：full" >> release.txt
           echo "- 精简版：simplify" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
-
+          
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()

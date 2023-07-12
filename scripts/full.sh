@@ -186,11 +186,6 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 rm -rf package/base-files/files/etc/banner
 wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
 
-# Test kernel 6.1
-rm -rf target/linux/x86/base-files/etc/board.d/02_network
-cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
-cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
-
 # Fix libssh
 pushd feeds/packages/libs
 rm -rf libssh
