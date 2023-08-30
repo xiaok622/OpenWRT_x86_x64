@@ -165,14 +165,16 @@ jobs:
           echo "release_tag=$(date +"%Y.%m.%d")-test-6.x" >> $GITHUB_OUTPUT
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
-          echo "## ⚠️ 警告" >> release.txt
-          echo "- 该固件用于测试，请勿下载" >> release.txt
-          echo "## 🗒️ 固件信息" >> release.txt
+          echo "
+          ## ⚠️ 警告
+          - 该固件用于测试，请勿下载
+          ## 🗒️ 固件信息" >> release.txt
           [ $UPLOAD_WETRANSFER = true ] && echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
-          echo "- 🔗 后台地址：192.168.10.1" >> release.txt
-          echo "- 🔑 后台密码：password" >> release.txt
-          echo "## 🍻 固件类型" >> release.txt
-          echo "- 测试版：test" >> release.txt
+          echo "
+          - 🔗 后台地址：192.168.10.1
+          - 🔑 后台密码：password
+          ## 🍻 固件类型
+          - 测试版：test" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
