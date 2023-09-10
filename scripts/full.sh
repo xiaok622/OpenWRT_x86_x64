@@ -43,7 +43,7 @@ svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
 svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
 #OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
 # 去广告
@@ -52,7 +52,7 @@ rm -rf ../../customfeeds/packages/utils/adguardhome
 rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 #dnsfilter
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-dnsfilter
@@ -149,14 +149,14 @@ rm -rf customfeeds/package/utils/sms-tool
 rm -rf customfeeds/luci/applications/luci-app-sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool package/community/sms-tool
 svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool package/community/luci-app-sms-tool
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-sms-tool temp/luci-app-sms-tool
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/applications/luci-app-sms-tool temp/luci-app-sms-tool
 cp -rf temp/luci-app-sms-tool/* package/community/luci-app-sms-tool
 
 # 5G模组拨号脚本
 mkdir -p package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem
-svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/etc/crontabs package/base-files/files/etc/crontabs
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/etc/crontabs package/base-files/files/etc/crontabs
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
