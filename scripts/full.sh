@@ -32,7 +32,7 @@ svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
 svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 
 # 科学上网和代理应用
-#SSR,Bypass,Passwall,Passwall2,VSSR
+#SSR,Passwall,Passwall2,Bypass,VSSR
 svn export https://github.com/kenzok8/small/trunk outside
 #SSR
 # svn export https://github.com/fw876/helloworld/trunk helloworld
