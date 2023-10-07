@@ -41,7 +41,7 @@ svn export https://github.com/kenzok8/small/trunk outside
 # svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
 # svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
 #VSSR（Hello Word）
-# svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
+svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
 # svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
 #OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
