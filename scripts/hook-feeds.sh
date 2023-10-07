@@ -24,7 +24,7 @@ rm -rf packages/net/minieap
 svn co https://github.com/immortalwrt/packages/trunk/net/minieap packages/net/minieap
 
 popd
-1
+
 # 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
 pushd feeds/packages/lang
 rm -rf golang

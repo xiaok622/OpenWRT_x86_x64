@@ -12,7 +12,7 @@
 # Add application
 mkdir package/community
 pushd package/community
-1
+
 # 系统相关应用
 #Poweroff
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff
