@@ -152,6 +152,7 @@ svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI packag
 #修复IPV6下发问题
 rm -rf customfeeds/luci/applications/luci-app-hypermodem
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/luci-app-hypermodem package/community/luci-app-hypermodem
+chmod -R a+x package/community/luci-app-hypermodem/root/etc/init.d/*
 
 # 5G模组短信插件
 rm -rf customfeeds/package/utils/sms-tool
