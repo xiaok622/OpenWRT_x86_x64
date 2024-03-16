@@ -10,7 +10,7 @@
 # Clone community packages to package/community
 
 # 删除冲突插件
-rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
+rm -rf customfeeds/luci/applications/luci-app-mosdns && rm -rf customfeeds/packages/net/{alist,adguardhome,smartdns}
 
 # 添加第三方应用
 mkdir kenzok8
@@ -46,14 +46,15 @@ pushd package/community
 # 系统相关应用
 #Poweroff
 mkdir luci-app-poweroff
-cp -rf ../../kenzok8/luci-app-poweroff/* luci-app-poweroff
+cp -rf ../../kenzok8-small/luci-app-poweroff/* luci-app-poweroff
 #fileassistant
+rm -rf ../../customfeeds/luci/applications/luci-app-fileassistant
 mkdir luci-app-fileassistant
 cp -rf ../../kenzok8/luci-app-fileassistant/* luci-app-fileassistant
 #guest-wifi
 rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
 mkdir luci-app-guest-wifi
-cp -rf ../../kenzok8/luci-app-guest-wifi/* luci-app-guest-wifi
+cp -rf ../../kenzok8-small/luci-app-guest-wifi/* luci-app-guest-wifi
 #Onliner (need luci-app-nlbwmon)
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 #Eqos
