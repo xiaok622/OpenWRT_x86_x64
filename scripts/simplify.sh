@@ -9,6 +9,9 @@
 #=================================================
 # Clone community packages to package/community
 
+# 删除冲突插件
+rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
+
 # 添加第三方应用
 mkdir kenzok8
 pushd kenzok8
@@ -18,6 +21,7 @@ popd
 mkdir kenzok8-small
 pushd kenzok8-small
 git clone --depth=1 https://github.com/kenzok8/small-package .
+rm -rf {base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 popd
 
 mkdir kenzok8-outside
@@ -258,5 +262,5 @@ popd
 # 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
 pushd feeds/packages/lang
 rm -rf golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 popd
