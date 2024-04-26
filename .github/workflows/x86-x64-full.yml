@@ -13,8 +13,8 @@ on:
   workflow_dispatch:
   # schedule:
     # - cron: 0 17 * * *
-  watch:
-     types: started
+  # watch:
+  #   types: started
 
 env:
   REPO_URL: https://github.com/DHDAXCW/lede-rockchip
@@ -28,7 +28,7 @@ env:
 
 jobs:
   Build:
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
     outputs:
       OPENWRTROOT: ${{ steps.update.outputs.OPENWRTROOT }}
       PLATFORM: ${{ steps.compile.outputs.PLATFORM }}
